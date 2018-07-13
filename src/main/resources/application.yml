@@ -1,0 +1,36 @@
+server:
+  port: 9001
+  servlet:
+    #context-path: /jmcms
+jmcms:
+  productName: 嘉梦科技企业管理平台
+  adminPath: /admin
+spring:
+#  cache:
+#    type: ehcache
+#    ehcache:
+#      config: ehcache.xml
+  freemarker:
+    #模板缓存
+    cache: false
+    #模板内容类型
+    content-type: text/html
+    request-context-attribute: request
+    #模板文件扩展名，默认为.ftl
+    suffix: .html
+  #数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/jmcms?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  #redis基础配置
+  redis:
+    #Redis数据库索引（默认为0）
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    # 连接超时时间 单位 ms（毫秒）
+    timeout: 3000
+    password:
