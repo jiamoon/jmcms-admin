@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${productName}-系统登录</title>
+</head>
+<body>
+<form id="loginForm" action="" method="post">
+    <div>
+        用户名：<input type="text" name="username" value="admin"/>
+    </div>
+    <div>
+        用户名：<input type="text" name="password" value="admin"/>
+    </div>
+    <button type="button" id="loginBtn">登录</button>
+</form>
+<script src="${request.contextPath}/resources/plugins/jQuery/jquery-1.11.3.js"></script>
+<script>
+    $(function () {
+        $("#loginBtn").click(function () {
+            //$("#loginForm").submit();
+            $.ajax({
+                url: "/login",
+                type: "post",
+                data: $("#loginForm").serialize(),
+                dataType: "text",
+                success: function (data) {
+                    alert(data);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

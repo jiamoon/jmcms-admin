@@ -34,3 +34,27 @@ spring:
     # 连接超时时间 单位 ms（毫秒）
     timeout: 3000
     password:
+mybatis:
+  #扫描mapper xml文件路径
+  mapper-locations: classpath:com/jiamoon/jmcms/modules/**/mapper/*Mapper.xml
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+  #自动扫描实体类,使得mapper xml中不需要写实体类完整路径、只需要写实体类类名
+  type-aliases-package: com.jiamoon.jmcms.modules
+mapper:
+  mappers: com.jiamoon.jmcms.common.dao.BaseMapper
+  not-empty: false
+  identity: MYSQL
+#pagehelper分页工具
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#日志配置
+logging:
+  level:
+    com:
+      jiamoon:
+        jmcms: DEBUG
