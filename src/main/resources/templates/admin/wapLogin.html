@@ -7,9 +7,9 @@
 </head>
 <body>
 <div id="app">
-    <div v-html="html">到底</div>
+    <div v-html="html">我是WAP登录页面测试</div>
 </div>
-<form id="loginForm" action="" method="post">
+<form id="loginForm" action="/admin/login" method="post">
     <div>
         ${error!}
     </div>
@@ -28,7 +28,7 @@
         $("#loginBtn").click(function () {
             //$("#loginForm").submit();
             $.ajax({
-                url: "/admin/login",
+                url: "/admin/ajaxLogin",
                 type: "post",
                 data: $("#loginForm").serialize(),
                 dataType: "text",
@@ -40,7 +40,7 @@
         let app = new Vue({
             el: "#app",
             data: {
-                html: "<b style='color:red'>对对对v-html</b>"
+                html: "<b style='color:red'>我是WAP登录页面测试</b>"
             }
         });
     });

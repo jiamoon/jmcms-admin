@@ -3,8 +3,14 @@ package com.jiamoon.jmcms.common.entity;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
-public class StatelessToken extends UsernamePasswordToken implements AuthenticationToken {
-    public StatelessToken(String username, String password) {
-        super(username, password);
+public class StatelessToken implements AuthenticationToken {
+    @Override
+    public Object getPrincipal() {
+        return null;
+    }
+
+    @Override
+    public Object getCredentials() {
+        return null;
     }
 }
