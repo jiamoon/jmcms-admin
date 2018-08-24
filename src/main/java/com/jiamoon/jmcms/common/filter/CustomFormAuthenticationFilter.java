@@ -109,7 +109,8 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
             httpServletResponse.addCookie(cookie);
             //跳转登录界面
             String loginUrl = this.getLoginUrl();
-            WebUtils.issueRedirect(request, response, loginUrl);
+            WebUtils.issueRedirect(request, response, loginUrl + "?redirect_url=" + httpServletRequest.getRequestURL()
+                    + (StringUtils.isNotBlank(httpServletRequest.getQueryString()) ? "?" + httpServletRequest.getQueryString() : ""));
         }
         //打住，到此为止
         return false;

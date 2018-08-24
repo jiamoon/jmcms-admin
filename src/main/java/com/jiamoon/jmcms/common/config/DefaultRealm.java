@@ -44,6 +44,8 @@ public class DefaultRealm extends AuthorizingRealm {
         //}
         System.out.println("我是默认realm=开始");
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        System.out.println(token.getPrincipal());
+        System.out.println(token.getCredentials());
         //根据用户名查询
         Admin admin = adminService.findAdminByUsername(token.getPrincipal().toString());
         if ("1".equals(token.getUsername())){
